@@ -44,17 +44,17 @@ class Board
     end
 
     render
-    next_turn(distr_index)    
+    next_turn(distr_index)
   end
 
   def next_turn(ending_cup_idx)
-    # helper method to determine what #make_move returns
-    if @cups[ending_cup_idx].length == 1
-      # ends in empty cup, switch turns
-      :switch
-    elsif [ending_cup_idx] == 6 || [ending_cup_idx] == 13
+    if ending_cup_idx == 6 || ending_cup_idx == 13
       # ends in store, prompt play again
       :prompt
+    elsif @cups[ending_cup_idx].length == 1
+      # ends in empty cup, switch turns
+      :switch
+
     else
       # ends on cup with stones, start again on this start_pos
       ending_cup_idx
