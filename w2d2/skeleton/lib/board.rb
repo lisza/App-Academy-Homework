@@ -18,7 +18,7 @@ class Board
   end
 
   def valid_move?(start_pos)
-    raise "Invalid starting cup" unless start_pos.between?(1,12)
+    raise "Invalid starting cup" unless start_pos.between?(0,13)
     raise "Invalid starting cup" if @cups[start_pos].empty?
   end
 
@@ -54,7 +54,6 @@ class Board
     elsif @cups[ending_cup_idx].length == 1
       # ends in empty cup, switch turns
       :switch
-
     else
       # ends on cup with stones, start again on this start_pos
       ending_cup_idx
@@ -70,8 +69,18 @@ class Board
   end
 
   def one_side_empty?
+    @cups[0..5].all? { |cup| cup.empty? } ||
+    @cups[7..12].all? { |cup| cup.empty? }
   end
 
   def winner
+    case @cups[6].count <=> cups[13].count
+    when 1
+      @name1
+    when 0
+      :draw
+    when -1
+      @name2
+    end
   end
 end
