@@ -11,13 +11,16 @@ class LRUCache
 
     def add(el)
       # adds element to cache according to LRU principle
-      cache.shift if count == @size
+      if cache.include?(el)
+        cache.delete(el)
+      elsif count >= @size
+      end
       cache.push(el)
     end
 
     def show
       # shows the items in the cache, with the LRU item first
-      print cache
+      p cache
     end
 
     private
