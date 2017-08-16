@@ -104,7 +104,7 @@ class Playwright
   end
 
   # this is the initialize method
-  def new(options)
+  def initialize(options)
     @id = options['id']
     @name = options['name']
     @birth_year = options['birth_year']
