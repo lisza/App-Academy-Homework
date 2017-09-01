@@ -14,3 +14,9 @@ Dog.prototype.chase = function (cat) {
 
 const Markov = new Cat ();
 const Noodles = new Dog ();
+
+//Call function method style
+Noodles.chase(Markov);
+// Call with call and apply to switch around arguments
+Noodles.chase.call(Markov, Noodles);
+Noodles.chase.apply(Markov, [Noodles]);
