@@ -54,3 +54,17 @@ function sumOfNPrimes(n) {
   }
   return sum;
 }
+
+// Part 2: Callbacks, still kinda broken...
+function titleize(array, callback) {
+  let titles = array.map(name => `Mx. ${name} Jingleheimer Schmidt`);
+
+  callback(titles);
+};
+
+
+titleize(["Mary", "Brian", "Leo"], (array)) {
+  array.forEach(name {
+    console.log(name);
+  });
+}
